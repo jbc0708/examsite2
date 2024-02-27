@@ -138,9 +138,10 @@ elif add_selectbox == '문제타입 확인':
                     }
                     st.session_state.data.pop(select-1)
                     data = st.session_state.data
+                    st.session_state.current -= 1
+                    select = st.session_state.current
                     result = connectDB(params)
                     st.rerun()
-            
             target = data[select-1]
             q_id = "%s년 %s회 %s번째" % (target[1], target[2], target[3])
             id = st.text_input("문제 번호", value=q_id, disabled=True)
