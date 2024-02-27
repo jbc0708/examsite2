@@ -79,7 +79,7 @@ if add_selectbox == "문제타입 입력":
 
 elif add_selectbox == '문제타입 확인':
     subjects = ('전기자기학', '전력공학', '전기기기', '회로이론 및 제어공학', '전기설비기술기준')
-    subject = st.selectbox("과목", subjects, index=0)
+    subject = st.selectbox("과목", subjects, index=None)
     if subject: 
         index_sub = subjects.index(subject)
         if index_sub != st.session_state.before:
