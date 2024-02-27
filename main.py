@@ -127,6 +127,19 @@ elif add_selectbox == '문제타입 확인':
                     if st.session_state.current < len(data) - 1:
                         st.session_state.current += 1
                         st.rerun()
+            with col3:
+                btn_delete = st.button("Delete", use_container_width=True, type='primary')
+                if btn_delete:
+                    target = data[select-1]
+                    id = target[0]
+                    params = {
+                        'address': 'deleteInfo',
+                        'id': id
+                    }
+                    st.session_state.data.pop(select-1)
+                    data = st.session_state.data
+                    result = connectDB(params)
+                    st.rerun()
             
             target = data[select-1]
             q_id = "%s년 %s회 %s번째" % (target[1], target[2], target[3])
