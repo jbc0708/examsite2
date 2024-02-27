@@ -16,7 +16,7 @@ if "year" not in st.session_state:
     st.session_state.type = '암기'
     st.session_state.keyword = ""
 
-    st.session_state.before = 0
+    st.session_state.before = -1
     st.session_state.current = 0
     st.session_state.data = []
 
