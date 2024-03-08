@@ -2,8 +2,8 @@ import streamlit as st
 import sqlite3, requests, json
 
 def connectDB(params):
-    host="http://127.0.0.1:9000/%s"%params['address']
-    #host="http://jbc0708.pythonanywhere.com/%s" % params['address']
+    #host="http://127.0.0.1:9000/%s"%params['address']
+    host="http://jbc0708.pythonanywhere.com/%s" % params['address']
     res = requests.post(host, data=json.dumps(params))
     return res.json()
 
