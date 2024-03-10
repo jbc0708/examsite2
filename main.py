@@ -2,8 +2,8 @@ import streamlit as st
 import sqlite3, requests, json
 
 def connectDB(params):
-    host="http://127.0.0.1:9000/%s"%params['address']
-    #host="http://jbc0708.pythonanywhere.com/%s" % params['address']
+    #host="http://127.0.0.1:9000/%s"%params['address']
+    host="http://jbc0708.pythonanywhere.com/%s" % params['address']
     res = requests.post(host, data=json.dumps(params))
     return res.json()
 
@@ -149,7 +149,7 @@ elif add_selectbox == "치트키 암기확인":
 
         cols_title = st.columns([2, 8])
         with cols_title[0]:
-            percent = "(정답률: %2d%%)" % int(target[6] / target[5] * 100) if target[5] > 0 else ""
+            percent = "(정답률: %2d%%)" % int(target[5] / target[6] * 100) if target[6] > 0 else ""
             st.write("치트키 Title %s" % percent)
         with cols_title[1]:
             st.latex(target[3])
